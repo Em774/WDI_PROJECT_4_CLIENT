@@ -1,14 +1,46 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Project 4 Client</title>
-    <base href="/" />
-    <!-- inject:js -->
-    <!-- endinject -->
-    <!-- inject:css -->
-    <!-- endinject -->
-  </head>
-  <body>
-  </body>
+<html ng-app="movieApp">
+<head>
+  <meta charset="utf-8">
+  <title>Project 4 Client</title>
+  <link rel="stylesheet" href="style/autocomplete.css">
+  <base href="/" />
+  <!-- inject:js -->
+  <!-- endinject -->
+  <!-- inject:css -->
+  <!-- endinject -->
+</head>
+<body ng-controller="MainCtrl as main">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" ng-click="main.isNavCollapsed = !main.isNavCollapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" ui-sref="home">Home</a>
+    </div>
+    <div class="collapse navbar-collapse" uib-collapse="main.isNavCollapsed">
+      <ul class="nav navbar-nav">
+        <li ng-hide="main.user">
+          <a ui-sref="register">Register</a>
+        </li>
+        <li ng-hide="main.user">
+          <a ui-sref="login">Login</a>
+        </li>
+        <li ng-show="main.user">
+          <p class="navbar-text">Welcome, {{ main.user.username }}</p>
+        </li>
+        <li ng-show="main.user">
+          <a ui-sref="moviesIndex">Movies</a>
+        </li>
+        <li ng-show="main.user">
+          <a ng-click="main.logout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <main class="container" ui-view></main>
+</body>
 </html>

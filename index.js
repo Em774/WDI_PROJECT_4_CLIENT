@@ -2,6 +2,7 @@ const express = require('express');
 const port    = process.env.PORT || 4000;
 const app     = express();
 const dest    = `${__dirname}/public`;
+// const autocomplete = require('autocomplete');
 
 app.use(express.static(dest));
 
