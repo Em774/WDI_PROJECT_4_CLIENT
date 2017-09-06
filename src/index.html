@@ -32,7 +32,7 @@
           <a ui-sref="login">Login</a>
         </li>
         <li ng-show="main.user">
-          <p class="navbar-text"><img src="{{main.user.image}}" style="width: 30px; border-radius: 20px; padding: 0; "> <a ui-sref="usersShow({id: main.user.id})">{{ main.user.username }}</a></p>
+          <p class="navbar-text"><img src="{{main.user.image}}" onerror="this.src='http://www.thehindu.com/sci-tech/technology/internet/article17759222.ece/alternates/FREE_660/02th-egg-person'" style="width: 30px; border-radius: 20px; padding: 0; "> <a ui-sref="usersShow({id: main.user.id})">{{ main.user.username }}</a></p>
         </li>
         <li ng-show="main.user">
           <a ui-sref="moviesIndex">Movies</a>

@@ -1,6 +1,6 @@
 .container {
   margin: 0 auto;
-  padding: 0 auto;
+  padding: 0;
 }
 
 .navbar {
@@ -9,4 +9,9 @@
 
 body {
   font-family: 'Lato', sans-serif;
+}
+
+.row {
+  margin: 0;
+  padding: 0;
 }

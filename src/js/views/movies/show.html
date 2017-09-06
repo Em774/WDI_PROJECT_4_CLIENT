@@ -15,10 +15,10 @@
 </form>
 
 <form class="" action="index.html" method="post">
-  <input type="submit" name="" value="Add to watchlist" style="position: absolute; margin-top: 190px; margin-left: 70px; border-radius: 2px; border: none; background-color: #EFA71A; color: white; padding: 10px; font-weight: bold;">
+  <input type="submit" name="" value="Add to watchlist" ng-click="addToWatchList()" style="position: absolute; margin-top: 190px; margin-left: 70px; border-radius: 2px; border: none; background-color: #EFA71A; color: white; padding: 10px; font-weight: bold;">
 </form>
 
-<div class="col-lg-3" style="position: absolute; margin-left: 255px; margin-top: -182px; color: white; text-shadow: 4px 2px 2px #545351;">
+<div class="col-lg-6" style="position: absolute; margin-left: 255px; margin-top: -182px; color: white; text-shadow: 4px 2px 2px #545351;">
   <h1>{{vm.all.title}}</h1>
   <p>Release date: {{vm.all.release_date}}</p>
   <p><i class="fa fa-clock-o" aria-hidden="true"></i>  {{vm.all.runtime}} min</p>
@@ -34,5 +34,14 @@
 <h4 style="margin-left: 928px; border-left: 5px solid #EFA71A; padding-left: 5px; margin-top: -40px; margin-bottom: 20px; position: absolute;">GENRE</h4>
 
 <div ng-repeat="genre in vm.all.genres" style=" margin-left: 928px;">
-    <p>{{genre.name}}</p>
+  <p>{{genre.name}}</p>
+</div>
+
+<div>
+  <ul ng-repeat="review in vm.reviews">
+    <li>{{review.rating}}</li>
+    <li>{{review.title}}</li>
+    <li>{{review.note}}</li>
+    <li>{{review.user.username}}</li>
+  </ul>
 </div>

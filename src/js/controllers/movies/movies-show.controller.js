@@ -5,6 +5,12 @@ angular
 moviesShowCtrl.$inject = ['Movie', '$http', '$stateParams', '$uibModal'];
 function moviesShowCtrl(Movie, $http, $stateParams, $uibModal) {
   const vm = this;
+  Movie.fetch({movie_api_id: $stateParams.id})
+  .$promise
+  .then(data => {
+    console.log(data);
+    vm.reviews = data.reviews;
+  });
 
   $http
   .get(`https://api.themoviedb.org/3/movie/${$stateParams.id}?api_key=8d027704c57524153a0af2b38415ac45&language=en-US&append_to_response=videos`)
@@ -50,6 +56,12 @@ function moviesShowCtrl(Movie, $http, $stateParams, $uibModal) {
     });
   }
   vm.open = openModal;
+
+  // function addToWatchList() {
+  //   vm.reviews.push()
+  // }
+  //
+  // vm.addToWatchList = addToWatchList();
 }
 
 

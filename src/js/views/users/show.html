@@ -4,7 +4,15 @@
 
 <img src="{{vm.user.image}}" style="width: 180px;">
 
+<p ui-sref="usersEdit({id: vm.user.id})">Edit</p>
+
 
 <h3>Reviews</h3>
+<ul ng-repeat="review in vm.user.reviews">
+  <li><a ui-sref="moviesShow({id: review.movie.movie_api_id})"><img src="https://image.tmdb.org/t/p/w185/{{review.movie.image}}"></a></li>
+  <span uib-rating ng-model="review.rating" max="5" read-only="true" aria-labelledby="default-rating"></span>
+  <li>{{review.title}}</li>
+</ul>
+
 
 <h3>Watchlist</h3>
