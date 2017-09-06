@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <title>Project 4 Client</title>
   <link rel="stylesheet" href="style/autocomplete.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <base href="/" />
   <!-- inject:js -->
   <!-- endinject -->
@@ -30,7 +32,7 @@
           <a ui-sref="login">Login</a>
         </li>
         <li ng-show="main.user">
-          <p class="navbar-text">Welcome, {{ main.user.username }}</p>
+          <p class="navbar-text"><img src="{{main.user.image}}" style="width: 30px; border-radius: 20px; padding: 0; "> <a ui-sref="usersShow({id: main.user.id})">{{ main.user.username }}</a></p>
         </li>
         <li ng-show="main.user">
           <a ui-sref="moviesIndex">Movies</a>

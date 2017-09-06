@@ -25,6 +25,8 @@ function moviesIndexCtrl(Movie, $http) {
   }
 }
 
+
+//jQuery version
 // $(document).ready(function() {
 //
 //   var url = 'http://api.themoviedb.org/3/',

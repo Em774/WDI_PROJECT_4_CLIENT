@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <h1>Movies</h1>
 
-{{ vm.searchQuery }}
-
 <form ng-submit="vm.searchFilms()">
   <input ng-model="vm.searchQuery" type="search" name="" placeholder="Search for movies...">
   <input type="submit">
 </form>
 
-<ul class="films">
-  <li ng-repeat="movie in vm.all" style="list-style-type: none;">
-    <div ui-sref="moviesShow({id: movie._id})">
-      <p>{{movie.id}}</p>
-      <p>{{movie.title}}</p>
-      <img src="https://image.tmdb.org/t/p/w185/{{movie.poster_path}}">
+<div class="container">
+<ul class="row">
+  <li ng-repeat="movie in vm.all" style="list-style-type: none; text-align: center;">
+    <div ui-sref="moviesShow({id: movie.id})">
+      <!-- <p>{{movie.id}}</p> -->
+      <!-- <p>{{movie.title}}</p> -->
+      <img src="https://image.tmdb.org/t/p/w185/{{movie.poster_path}}" style="margin-bottom: 30px; margin-top: 30px;" class="col-lg-2">
     </div>
   </li>
 </ul>
+</div>
 
 <!-- <div ng-controller="moviesIndexCtrl">
   <ul>
