@@ -6,6 +6,8 @@ moviesIndexCtrl.$inject = ['Movie', '$http'];
 function moviesIndexCtrl(Movie, $http) {
   const vm = this;
 
+  vm.showLoadingGif = false;
+
   $http
     .get('https://api.themoviedb.org/3/movie/popular?api_key=8d027704c57524153a0af2b38415ac45&language=en-US&page=1')
     .then(res => {
@@ -17,11 +19,18 @@ function moviesIndexCtrl(Movie, $http) {
   vm.searchFilms = searchFilms;
 
   function searchFilms() {
+    vm.showLoadingGif = true;
+
+
     $http
       .get(`http://localhost:3000/api/getmovies/${vm.searchQuery}`)
       .then(res => {
+        vm.showLoadingGif = false;
         vm.all = res.data;
       });
+      // .catch(err => {
+      //   $state.go('404');
+      // })
   }
 }
 

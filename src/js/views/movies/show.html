@@ -11,11 +11,13 @@
 <img src="https://image.tmdb.org/t/p/w300/{{vm.all.poster_path}}" style="width: 200px; position: absolute; margin-top: -193px; margin-left: 35px; box-shadow: 0px 6px 46px 0px rgba(77,77,77,1);">
 
 <form ng-submit="vm.createMovie()" >
-  <input type="submit" value="Add a review" ng-click="vm.open()" style="position: absolute; margin-top: 140px; margin-left: 80px; border-radius: 2px; border: none; background-color: #EFA71A; color: white; padding: 10px; font-weight: bold;">
+  <input ng-hide="vm.disableReviewButton" type="submit" value="Add a review" ng-click="vm.open()" style="position: absolute; margin-top: 140px; margin-left: 80px; border-radius: 2px; border: none; background-color: #EFA71A; color: white; padding: 10px; font-weight: bold;">
+
+  <input ng-show="vm.disableReviewButton" type="submit" value="Edit review" ng-click="vm.editReview()" style="position: absolute; margin-top: 140px; margin-left: 86px; border-radius: 2px; border: none; background-color: #EFA71A; color: white; padding: 10px; font-weight: bold;">
 </form>
 
 <form class="" action="index.html" method="post">
-  <input type="submit" name="" value="Add to watchlist" ng-click="addToWatchList()" style="position: absolute; margin-top: 190px; margin-left: 70px; border-radius: 2px; border: none; background-color: #EFA71A; color: white; padding: 10px; font-weight: bold;">
+  <input type="submit" name="" value="Add to watchlist" ng-click="addToWatchList()" style="position: absolute; margin-top: 190px; margin-left: 70px; border-radius: 2px; border: none; background-color: #EFA71A; color: white; padding: 10px; font-weight: bold;" disabled>
 </form>
 
 <div class="col-lg-6" style="position: absolute; margin-left: 255px; margin-top: -182px; color: white; text-shadow: 4px 2px 2px #545351;">
@@ -27,21 +29,30 @@
 <h4 style="margin-left: 267px; border-left: 5px solid #EFA71A; padding-left: 5px; margin-top: 40px; margin-bottom: 20px;">OVERVIEW</h4>
 
 
-<div class="col-lg-7" style="margin-left: 255px; line-height: 23px;">
+<div class="col-lg-6" style="margin-left: 255px; line-height: 23px;">
   <p>{{vm.all.overview}}</p>
 </div>
 
-<h4 style="margin-left: 928px; border-left: 5px solid #EFA71A; padding-left: 5px; margin-top: -40px; margin-bottom: 20px; position: absolute;">GENRE</h4>
+<h4 style="margin-left: 910px; border-left: 5px solid #EFA71A; padding-left: 5px; margin-top: -40px; margin-bottom: 20px; position: absolute;">GENRE</h4>
 
-<div ng-repeat="genre in vm.all.genres" style=" margin-left: 928px;">
+<div ng-repeat="genre in vm.all.genres" style=" margin-left: 910px;">
   <p>{{genre.name}}</p>
 </div>
 
+<h4 style="margin-left: 910px; border-left: 5px solid #EFA71A; padding-left: 5px; margin-top: 55px; margin-bottom: 20px; position: absolute;">TRAILER</h4>
+<div style="margin-left: 910px; position: absolute; margin-top: 106px;">
+  <iframe ng-src="{{vm.link}}" width="280" height="175" allowfullscreen frameborder="0"></iframe>
+</div>
+
 <div>
-  <ul ng-repeat="review in vm.reviews">
-    <li>{{review.rating}}</li>
-    <li>{{review.title}}</li>
-    <li>{{review.note}}</li>
-    <li>{{review.user.username}}</li>
+  <ul ng-repeat="review in vm.reviews" style="list-style-type: none; border: 1px solid #EFA71A; border-radius: 5px; margin-left: 320px; margin-bottom: 20px; padding-top: 7px; background-color: #FFFDF9;" class="col-lg-4">
+    <span uib-rating ng-model="review.rating" max="5" read-only="true" aria-labelledby="default-rating" style="font-size: 20px; color: #FFA200;"></span>
+    <li style="font-weight: 550; font-size: 18px; margin-top: 5px;">{{review.title}}</li>
+    <li style="margin-top: 7px; padding-right: 2px;">{{review.note}}</li>
+    <li style="font-size: 12px; margin-top: 4px;">{{review.user.username}}</li>
+    <a ui-sref="usersShow({id: review.user.id})"><img src="{{review.user.image}}" style="width: 50px; padding: 0; margin-left: 348px;
+    margin-top: -95px; box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.64);"></a>
   </ul>
 </div>
+
+<div ng-show="vm.showLoadingGif" class="loader"></div>

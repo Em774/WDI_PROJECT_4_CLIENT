@@ -13,8 +13,8 @@ function userEditCtrl(User, $stateParams, $state) {
     User
     .update({id: vm.user.id}, {user: vm.user})
     .$promise
-    .then(() => {
-      $state.go('usersShow', $stateParams);
+    .then(user => {
+      $state.go('usersShow', { id: user.id });
     });
   }
 }

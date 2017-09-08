@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 
-<h1>{{vm.user.username}}</h1>
+<h1 style="margin-left: 255px; position: absolute; margin-top: 66px; text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);">{{vm.user.username}}</h1>
 
-<img src="{{vm.user.image}}" style="width: 180px;">
+<img src="{{vm.user.image}}" style="width: 180px; margin-left: 25px; margin-top: 37px; box-shadow: 0px 6px 46px 0px rgba(77,77,77,1); ">
 
-<p ui-sref="usersEdit({id: vm.user.id})">Edit</p>
+<p ui-sref="usersEdit({id: vm.user.id})" style="position: absolute; margin-top: -180px; margin-left: 1076px; border-radius: 2px; border: none; background-color: #EFA71A; color: white; padding: 10px; font-weight: bold; cursor: pointer">Edit Profile</p>
 
+<p style="font-size: 21px; margin-top: -63px; margin-left: 270px; position: absolute; text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);">{{vm.user.reviews.length}} <i class="fa fa-film" aria-hidden="true"></i></p>
 
-<h3>Reviews</h3>
-<ul ng-repeat="review in vm.user.reviews">
-  <li><a ui-sref="moviesShow({id: review.movie.movie_api_id})"><img src="https://image.tmdb.org/t/p/w185/{{review.movie.image}}"></a></li>
-  <span uib-rating ng-model="review.rating" max="5" read-only="true" aria-labelledby="default-rating"></span>
-  <li>{{review.title}}</li>
-</ul>
+<p style="margin-top: -32px; margin-left: 270px; position: absolute; text-shadow: text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);">reviews</p>
 
 
-<h3>Watchlist</h3>
+<hr style="border: 1px solid #EFA71A; margin-top: 40px;">
+
+<h3 style="margin-bottom: 34px; border-left: 5px solid #EFA71A; padding-left: 5px; font-size: 20px;">REVIEWS</h3>
+<div class="container">
+  <div class="row">
+    <ul ng-repeat="review in vm.user.reviews" class="col-lg-3" style="text-align: center; margin-bottom: 20px;">
+      <li style="list-style-type: none"><a ui-sref="moviesShow({id: review.movie.movie_api_id})"><img src="https://image.tmdb.org/t/p/w185/{{review.movie.image}}" style="width: 55%; box-shadow: 0px 6px 46px 0px rgba(77,77,77,1); margin-bottom: 15px;"></a></li>
+      <span uib-rating ng-model="review.rating" max="5" read-only="true" aria-labelledby="default-rating" style="color: #FFA200;"></span>
+      <li style="list-style-type: none">{{review.title}}</li>
+    </ul>
+  </div>
+</div>

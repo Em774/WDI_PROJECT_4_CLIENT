@@ -15,3 +15,28 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.loader {
+  width: 120px;
+  height: 119px;
+  background-image: url("https://media3.giphy.com/media/1Ujr5kKotT8SQ/giphy.gif");
+  background-size: 120px;
+  position: absolute;
+  margin-top: -1048px;
+  margin-left: 520px;
+}
+
+input:focus {
+   outline: none;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+}
+
+footer{
+  position: fixed;
+  height: 100px;
+  bottom: 0;
+  width: 100%;
+}

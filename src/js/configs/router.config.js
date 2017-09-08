@@ -47,6 +47,12 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
     controller: 'reviewNewCtrl',
     controllerAs: 'vm'
   })
+  .state('commentReview', {
+    url: '/comment/new',
+    templateUrl: '/js/views/partials/commentReviewModal.html',
+    controller: 'CommentReviewCtrl',
+    controllerAs: 'vm'
+  })
   .state('usersShow', {
     url: '/users/:id',
     templateUrl: '/js/views/users/show.html',

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<div class="modal-header">
+  <h3 class="modal-title" >Edit your review</h3>
+</div>
+<div class="modal-body">
+  <form class="" action="index.html" method="post">
+    <label for="image">Rating</label>
+    <span uib-rating  ng-model="vm.review.rating" max="5"  aria-labelledby="default-rating"></span>
+    <br>
+    <input type="text" placeholder="Title of your review" ng-model="vm.review.title" >
+    <br>
+    <textarea placeholder="Write your review here ..." rows="5" cols="40" ng-model="vm.review.note" value="{{vm.review.note}}"></textarea>
+  </form>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" ng-click="vm.closeModal()">Cancel</button>
+  <button class="btn btn-success" ng-click="vm.update()">Save</button>
+</div>

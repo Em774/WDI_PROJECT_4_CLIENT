@@ -15,15 +15,9 @@
 <body ng-controller="MainCtrl as main">
   <nav class="navbar navbar-default" role="navigation">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" ng-click="main.isNavCollapsed = !main.isNavCollapsed">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" ui-sref="home">Home</a>
+      <a class="navbar-brand" style="font-weight: 600; cursor: default">Culture.my.movies</a>
     </div>
-    <div class="collapse navbar-collapse" uib-collapse="main.isNavCollapsed">
+    <div class="collapse navbar-collapse" uib-collapse="main.isNavCollapsed" style="line-height: 8px;">
       <ul class="nav navbar-nav">
         <li ng-hide="main.user">
           <a ui-sref="register">Register</a>
@@ -32,17 +26,37 @@
           <a ui-sref="login">Login</a>
         </li>
         <li ng-show="main.user">
-          <p class="navbar-text"><img src="{{main.user.image}}" onerror="this.src='http://www.thehindu.com/sci-tech/technology/internet/article17759222.ece/alternates/FREE_660/02th-egg-person'" style="width: 30px; border-radius: 20px; padding: 0; "> <a ui-sref="usersShow({id: main.user.id})">{{ main.user.username }}</a></p>
+          <a ui-sref="moviesIndex" style="font-size: 15px; margin-top: 8px; font-weight: 500;    border-bottom: 3px solid #EFA71A; padding: 0; padding-bottom: 9px; padding-top: 7px; margin-left: 35px;">Movies</a>
         </li>
-        <li ng-show="main.user">
-          <a ui-sref="moviesIndex">Movies</a>
-        </li>
-        <li ng-show="main.user">
-          <a ng-click="main.logout()">Logout</a>
-        </li>
+
+        <a ui-sref="usersShow({id: main.user.id})"><img ng-show="main.user" src="{{main.user.image}}" style="width: 40px; padding: 0; position: absolute; margin-left: 850px; margin-top: 7px; box-shadow: 0px 0px 20px -1px rgba(107,107,107,1);"></a>
+
+        <div class="btn-group" uib-dropdown is-open="status.isopen" ng-show="main.user">
+          <button id="single-button" type="button" class="btn" uib-dropdown-toggle ng-disabled="disabled" style="background-color:rgba(0, 0, 0, 0); margin-left: 892px; margin-top: -41px; position: absolute;"> {{ main.user.username }} <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button" style="margin-left: 892px;">
+            <li role="menuitem" ng-show="main.user">
+              <a ui-sref="usersShow({id: main.user.id})">Profile</a>
+            </li>
+            <li role="menuitem" ng-show="main.user">
+              <a ui-sref="usersEdit({id: main.user.id})" >Edit Profile</a>
+            </li>
+            <li class="divider"></li>
+            <li role="menuitem" ng-show="main.user">
+              <a ng-click="main.logout()" style="cursor: pointer">Log out</a>
+            </li>
+          </ul>
+        </div>
+
       </ul>
     </div>
   </nav>
+
   <main class="container" ui-view></main>
 </body>
+<!-- <footer>
+  <div class="navbar-fixed-bottom">
+    <p>Copyright ©2017, Made by &hearts; by Emilie Dussaix</p>
+  </div>
+</footer> -->
 </html>

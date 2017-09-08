@@ -14,7 +14,7 @@ function LoginCtrl(User, CurrentUserService, $state) {
     .$promise
     .then(() => {
       CurrentUserService.getUser();
-      $state.go('home');
+      $state.go('moviesIndex');
     });
   }
 }

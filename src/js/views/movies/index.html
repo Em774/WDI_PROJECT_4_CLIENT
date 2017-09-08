@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<h1>Movies</h1>
+<h1 style="font-size: 26px; border-left: 5px solid #EFA71A; padding-left: 5px; margin-top: 33px;">POPULAR MOVIES</h1>
 
-<form ng-submit="vm.searchFilms()">
-  <input ng-model="vm.searchQuery" type="search" name="" placeholder="Search for movies...">
-  <input type="submit">
+<form ng-submit="vm.searchFilms()" style="position: absolute; margin-left: 430px; margin-top: -42px;">
+  <input ng-model="vm.searchQuery" type="search" name="" placeholder="Search for movies..." style="width: 265px; border: none; border-bottom: 1px solid #EFA71A; font-size: 24px; text-align: center;">
+  <input type="submit" value="SEARCH" style="border-radius: 2px; border: none; background-color: #EFA71A; color: white; padding: 5px 10px 5px 10px; font-weight: bold; margin-left: 10px;">
 </form>
 
 <div class="container">
-<ul class="row">
+<ul class="row" style="margin-top: 15px; margin-left: 35px;">
   <li ng-repeat="movie in vm.all" style="list-style-type: none; text-align: center;">
     <div ui-sref="moviesShow({id: movie.id})">
       <!-- <p>{{movie.id}}</p> -->
       <!-- <p>{{movie.title}}</p> -->
-      <img src="https://image.tmdb.org/t/p/w185/{{movie.poster_path}}" style="margin-bottom: 30px; margin-top: 30px;" class="col-lg-2">
+      <img src="https://image.tmdb.org/t/p/w185/{{movie.poster_path}}" style="margin-bottom: 30px; margin-top: 30px; padding: 0; margin-left: 15px; margin-right: 15px; box-shadow: 0px 6px 46px 0px rgba(77,77,77,1);" class="col-lg-2">
     </div>
   </li>
 </ul>
@@ -28,3 +28,5 @@
     </li>
   </ul>
 </div> -->
+
+<div ng-show="vm.showLoadingGif" class="loader"></div>
