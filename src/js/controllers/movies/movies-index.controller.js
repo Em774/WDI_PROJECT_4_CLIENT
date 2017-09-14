@@ -23,7 +23,7 @@ function moviesIndexCtrl(Movie, $http) {
 
 
     $http
-      .get(`https://localhost:3000/api/getmovies/${vm.searchQuery}`)
+      .get(`https://culture-my-movies.herokuapp.com/api/getmovies/${vm.searchQuery}`)
       .then(res => {
         vm.showLoadingGif = false;
         vm.all = res.data;
