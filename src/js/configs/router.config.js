@@ -7,10 +7,10 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
   $locationProvider.html5Mode(true);
 
   $stateProvider
-  .state('home', {
-    url: '/',
-    templateUrl: '/js/views/home.html'
-  })
+  // .state('home', {
+  //   url: '/',
+  //   templateUrl: '/js/views/home.html'
+  // })
   .state('register', {
     url: '/register',
     templateUrl: '/js/views/authentications/register.html',
@@ -30,7 +30,7 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
   //   controllerAs: 'vm'
   // })
   .state('moviesIndex', {
-    url: '/movies',
+    url: '/',
     templateUrl: '/js/views/movies/index.html',
     controller: 'moviesIndexCtrl',
     controllerAs: 'vm'
