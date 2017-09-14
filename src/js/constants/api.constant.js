@@ -1,3 +1,3 @@
 angular
 .module('movieApp')
-.constant('API', `http://localhost:3000/api`);
+.constant('API', `https://culture-my-movies.herokuapp.com/api`);
