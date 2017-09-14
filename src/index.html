@@ -29,12 +29,12 @@
           <a ui-sref="moviesIndex" style="font-size: 15px; margin-top: 8px; font-weight: 500;    border-bottom: 3px solid #EFA71A; padding: 0; padding-bottom: 9px; padding-top: 7px; margin-left: 35px;">Movies</a>
         </li>
 
-        <a ui-sref="usersShow({id: main.user.id})"><img ng-show="main.user" src="{{main.user.image}}" style="width: 40px; padding: 0; position: absolute; margin-left: 850px; margin-top: 7px; box-shadow: 0px 0px 20px -1px rgba(107,107,107,1);"></a>
+        <a ui-sref="usersShow({id: main.user.id})"><img ng-show="main.user" src="{{main.user.image}}" style="width: 40px; padding: 0; position: absolute; margin-left: 797px; margin-top: 7px; box-shadow: 0px 0px 20px -1px rgba(107,107,107,1);"></a>
 
         <div class="btn-group" uib-dropdown is-open="status.isopen" ng-show="main.user">
-          <button id="single-button" type="button" class="btn" uib-dropdown-toggle ng-disabled="disabled" style="background-color:rgba(0, 0, 0, 0); margin-left: 892px; margin-top: -41px; position: absolute;"> {{ main.user.username }} <span class="caret"></span>
+          <button id="single-button" type="button" class="btn" uib-dropdown-toggle ng-disabled="disabled" style="background-color:rgba(0, 0, 0, 0); margin-left: 842px; position: absolute;"> {{ main.user.username }} <span class="caret"></span>
           </button>
-          <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button" style="margin-left: 892px;">
+          <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button" style="margin-left: 842px; margin-top: 40px;">
             <li role="menuitem" ng-show="main.user">
               <a ui-sref="usersShow({id: main.user.id})">Profile</a>
             </li>
